@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends LegacyModel
 {
+    use HasRoles;
+
     protected $table = 'users';
     protected $primaryKey = 'id';
     public $incrementing = true;
