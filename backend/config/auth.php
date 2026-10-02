@@ -40,11 +40,11 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'legacy',
         ],
         'api' => [
             'driver' => 'sanctum',
-            'provider' => 'users',
+            'provider' => 'legacy',
         ],
         'admin' => [
             'driver' => 'session',
@@ -70,9 +70,13 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'legacy' => [
             'driver' => 'legacy',
             'model' => App\Models\LegacyUser::class,
+        ],
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
